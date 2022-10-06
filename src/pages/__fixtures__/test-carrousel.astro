@@ -1,0 +1,35 @@
+---
+let images = [];
+---
+
+<div class="images">
+  {
+    images.map((image, index) => (
+      <div class="image-container">
+        <div class="previous">Previous</div>
+        <img title={image.title} src={image.url} alt={image.explanation} />
+        <div class="next">Next</div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .images {
+  }
+</style>
+
+<script>
+  let images = [];
+  let currentIdx = 0;
+  function next() {
+    currentIdx = (currentIdx + 1) % images.length;
+  }
+  function previous() {
+    if (currentIdx === 0) {
+      currentIdx = images.length - 1;
+    } else {
+      currentIdx -= 1;
+    }
+  }
+</script>
